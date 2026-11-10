@@ -18,3 +18,13 @@ Demo sales are illustrative, not verified live offers. Added stores are only kep
 
 ## Next stage
 Connect Cloudflare D1 and server-side scheduled checks, implement per-store parsers, persist store and sale records, then add Telegram alerts and authentication.
+
+
+## v0.3 usability update
+- Store list is saved in browser LocalStorage and survives page reloads on the same browser/device.
+- Duplicate store URLs are prevented.
+- Stores can be removed from the Stores page.
+- Browser alert popups were replaced with in-page toast notifications.
+- Typography and form controls were enlarged for readability.
+
+Note: LocalStorage is browser/device-specific. It is not cloud sync or a backup. Clearing browser site data removes the saved list. Cloudflare D1 will be used later for cross-device persistence.
