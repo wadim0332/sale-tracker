@@ -1,24 +1,20 @@
-# SALE TRACKER — frontend prototype
+# SALE TRACKER 2.0 — Sale & Discount Monitor
 
-A bilingual (English/Ukrainian), dark-mode dashboard prototype for a personal store and product price tracker.
+Bilingual English/Ukrainian static frontend prototype.
 
-## Run locally
-Open `index.html` in a browser. No build step is required.
+## Deploy
+Upload `index.html`, `styles.css`, `app.js`, and `README.md` to the root of the `sale-tracker` GitHub repository. Cloudflare Pages settings: branch `main`, framework preset `None`, build command blank, output directory `.`.
 
-## Publish on GitHub Pages
-1. Create a GitHub repository (or use your existing `salesmonitorbot` repository only if you want to keep the prototype together).
-2. Upload `index.html`, `styles.css`, and `app.js` to the repository root.
-3. In GitHub, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then Save.
-5. GitHub will show the public Pages URL after deployment.
+## Prototype features
+- Overview focused on store-wide sales and promotions.
+- Stores page and universal Add store form (custom store name, URL, category).
+- Sales & Discounts page with illustrative seasonal sale, outlet, promo and extra-discount examples.
+- Optional Products page, Activity and Settings.
+- EN/UA language switch with browser preference persistence.
+- Responsive warm light theme using the supplied grey/gold palette.
 
-## Prototype limitations
-- Product rows, stores, prices, and activity are illustrative sample data.
-- The EN / UA language toggle is included; the selection is saved in the browser.
-- The add-product form and currency display work in the browser, but new rows are not persisted to a database.
-- No live scraping, login, admin authorization, D1 database, or Telegram integration is connected yet.
-- Exchange rates are static demo values. Live FX rates will be added separately.
-- The Google Fonts import requires an internet connection; system fallbacks are available.
+## Limitations
+Demo sales are illustrative, not verified live offers. Added stores are only kept in the current browser session. No database, automatic website checks, authentication, scheduler or Telegram integration is connected yet. The prototype does not claim that the listed retailers currently have these promotions.
 
-## Planned next stage
-Cloudflare Pages + Workers + D1 for the web app and database; scheduled Python monitoring for store/product checks; Telegram alerts from server-side secrets.
+## Next stage
+Connect Cloudflare D1 and server-side scheduled checks, implement per-store parsers, persist store and sale records, then add Telegram alerts and authentication.
