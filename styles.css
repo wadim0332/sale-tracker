@@ -30,3 +30,72 @@ body{font-size:15px}.nav{font-size:14px;padding:15px 13px}
 .toast{position:fixed;right:24px;bottom:24px;z-index:50;max-width:min(390px,calc(100vw - 32px));padding:15px 19px;border-radius:10px;background:#37323e;color:#fff;box-shadow:0 12px 35px #37323e35;font:13px var(--font);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}
 .toast.show{opacity:1;transform:translateY(0)}
 .remove-store{margin-top:12px;border:0;background:transparent;color:#9a6262;font:12px var(--font);cursor:pointer;padding:5px 0}
+
+/* SALE TRACKER 2.3 — requested Dim Grey / Shadow Grey / Gold palette */
+:root{
+ --bg:#6D6A75;
+ --side:#37323E;
+ --panel:#F2F0ED;
+ --line:#8D8992;
+ --ink:#37323E;
+ --muted:#625E69;
+ --green:#52795B;
+ --gold:#DEB841;
+ --font:Manrope,sans-serif;
+}
+body{background:#6D6A75;color:#F8F6F2;font-size:16px}
+.sidebar{background:#37323E;border-right:1px solid #514C58;color:#F8F6F2}
+.brand{color:#F8F6F2}.muted-brand{color:#C6C2CA}
+.side-label{color:#C6C2CA}
+.nav{color:#E0DDE3;font-size:15px;padding:16px 13px}
+.nav:hover{background:#514C58}.nav.active{background:#DEB841;color:#37323E}
+.nav small{color:#D7D2DC}
+.status{background:#45404C;border-color:#625D69}.status b{color:#F2F0ED}.status p{color:#D0CBD4}
+.profile{border-color:#625D69}.profile strong{color:#F8F6F2}.profile small{color:#C6C2CA}
+header{background:#37323E;border-color:#514C58;color:#F8F6F2}
+.crumb{color:#D0CBD4}.crumb strong{color:#fff}
+.lang{background:#514C58;border-color:#716B78;color:#fff}
+.demo{color:#DEB841}
+.heading h1{color:#fff;font-size:38px}
+.heading p{color:#F0EDF2;font-size:16px}
+.heading label,.content label{color:#77727E}
+.stats article,.panel,.store-card,.sale-card{background:#F2F0ED;border-color:#D0CDD1;color:#37323E}
+.stats article.gold{background:#DEB841;border-color:#DEB841}
+.stats article.green{background:#E8E9E3;border-color:#C8CEC2}
+.stats strong{font-size:34px}
+.stats label{font-size:12px}
+.stats small{font-size:13px;color:#625E69}
+.panel-head h2,.page h2{font-size:20px}
+.panel-head p{font-size:14px;color:#625E69}
+.store-info b,.sale-row b,.sale-card h3,.store-card h3{font-size:14px}
+.store-info small,.store-card small,.sale-row p,.sale-card p{font-size:13px}
+.btn{font-size:14px;min-height:50px;padding:15px 20px}
+.primary{background:#37323E;border-color:#37323E;color:#fff}
+.primary:hover{background:#514C58}
+.quiet{background:#F2F0ED;color:#37323E;border-color:#D0CDD1}
+.link{color:#8A6516}
+.logo{background:#37323E;color:#DEB841}
+.promo{background:#37323E}.promo h2{font-size:26px}.promo p{font-size:13px}
+footer{color:#F0EDF2}
+.modal{background:#F2F0ED;color:#37323E}
+.toast{background:#37323E;border:1px solid #DEB841;font-size:14px}
+.tracked-source-wrap{margin:6px 0 22px;padding:16px;border:1px solid #D0CDD1;border-radius:10px;background:#E8E6E8}
+.tracked-source-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.tracked-source-head h3{font-size:16px;margin:5px 0 0}
+.sales-stores{display:flex;flex-wrap:wrap;gap:9px}
+.sales-store-chip{display:flex;align-items:center;gap:9px;background:#F8F7F5;border:1px solid #D6D2D6;border-radius:9px;padding:10px 12px;min-width:190px;flex:1}
+.mini-logo{width:32px;height:32px;display:grid;place-items:center;border-radius:7px;background:#37323E;color:#DEB841;font:11px var(--mono)}
+.sales-store-chip b,.sales-store-chip small{display:block}
+.sales-store-chip b{font-size:13px}
+.sales-store-chip small{font-size:11px;color:#77727E;margin-top:2px}
+.sales-store-chip i{font:9px var(--mono);font-style:normal;color:#52795B;margin-left:auto}
+.no-sources{font-size:13px;color:#625E69}
+.sale-row{border-color:#DDD9DC}
+.sale-row .discount{color:#8B681D}
+.sale-card .discount{color:#52795B}
+@media(max-width:720px){
+ .heading h1{font-size:33px}
+ .heading p{font-size:14px}
+ .tracked-source-head{align-items:flex-start;flex-direction:column}
+ .sales-store-chip{min-width:100%}
+}
