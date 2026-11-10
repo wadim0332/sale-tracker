@@ -17,3 +17,16 @@ body{font-size:14px}
 .toast.show{opacity:1;transform:translateY(0)}
 .remove-store{margin-top:12px;border:0;background:transparent;color:#9a6262;font:11px var(--font);cursor:pointer;padding:4px 0}
 .remove-store:hover{color:#783b3b;text-decoration:underline}
+
+/* v2.2 readability */
+body{font-size:15px}.nav{font-size:14px;padding:15px 13px}
+.heading p,.panel-head p{font-size:14px;line-height:1.65}
+.stats label{font-size:11px}.stats small{font-size:12px}
+.store-info b,.sale-row b,.sale-card h3,.store-card h3{font-size:13px}
+.store-info small,.store-card small,.sale-row p,.sale-card p{font-size:12px;line-height:1.55}
+.btn{font-size:13px;min-height:47px;padding:14px 18px}
+.modal form label{font-size:12px}.modal input,.modal select{font-size:13px;padding:14px}
+.hint,.monitor-choice small{font-size:11px;line-height:1.6}
+.toast{position:fixed;right:24px;bottom:24px;z-index:50;max-width:min(390px,calc(100vw - 32px));padding:15px 19px;border-radius:10px;background:#37323e;color:#fff;box-shadow:0 12px 35px #37323e35;font:13px var(--font);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}
+.toast.show{opacity:1;transform:translateY(0)}
+.remove-store{margin-top:12px;border:0;background:transparent;color:#9a6262;font:12px var(--font);cursor:pointer;padding:5px 0}
