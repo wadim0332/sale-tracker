@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101112">
+  <meta name="description" content="SALE TRACKER — personal store and product price monitoring dashboard.">
+  <title>SALE TRACKER — Price Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Sale Tracker home">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">SALE<span>TRACKER</span></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">▦</span> Overview</button>
+        <button class="nav-item" data-view="stores"><span class="nav-icon">▤</span> Stores <span class="nav-count">3</span></button>
+        <button class="nav-item" data-view="products"><span class="nav-icon">◇</span> Products <span class="nav-count">6</span></button>
+        <button class="nav-item" data-view="history"><span class="nav-icon">↗</span> Price history</button>
+        <button class="nav-item" data-view="alerts"><span class="nav-icon">◉</span> Alerts <span class="alert-dot"></span></button>
+      </nav>
+      <div class="side-label tools-label">PREFERENCES</div>
+      <nav class="nav">
+        <button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span> Settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="status-card">
+          <div class="status-top"><span class="pulse"></span> MONITOR STATUS <span class="status-live">DEMO</span></div>
+          <p>Dashboard prototype is ready. Live store checks are not connected yet.</p>
+        </div>
+        <div class="profile">
+          <div class="avatar">ST</div>
+          <div><strong>Personal workspace</strong><small>Private admin · Demo mode</small></div>
+          <span class="more">···</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbCurrent">Overview</strong></div>
+        <div class="top-actions">
+          <div class="last-sync"><span class="pulse"></span> <span data-i18n="demoData">DEMO DATA</span></div>
+          <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">UA</button>
+          <button class="icon-button" title="Notifications" data-view="alerts">♧<i></i></button>
+          <div class="top-avatar">ST</div>
+        </div>
+      </header>
+
+      <section class="page-content">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">MONITOR YOUR PICKS</div>
+            <h1 id="pageTitle">Overview<span class="title-period">.</span></h1>
+            <p id="pageSubtitle">A clear view of the stores and products on your radar.</p>
+          </div>
+          <div class="heading-actions">
+            <button class="button button-quiet" id="exportBtn">↓ <span>Export</span></button>
+            <button class="button button-primary" id="addProductBtn"><span>＋</span> Add product</button>
+          </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+          <article class="stat-card"><div class="stat-head">TRACKED PRODUCTS <span class="stat-icon">◇</span></div><div class="stat-value" id="trackedCount">06</div><div class="stat-foot"><span class="neutral-pill">Across 3 stores</span></div></article>
+          <article class="stat-card"><div class="stat-head">ACTIVE DISCOUNTS <span class="stat-icon">％</span></div><div class="stat-value" id="discountCount">03</div><div class="stat-foot"><span class="green-text">↓ 3 products</span><span class="muted"> currently discounted</span></div></article>
+          <article class="stat-card"><div class="stat-head">AVERAGE SAVING <span class="stat-icon">↘</span></div><div class="stat-value">−24.6<span class="stat-unit">%</span></div><div class="stat-foot"><span class="green-text">On discounted products</span></div></article>
+          <article class="stat-card"><div class="stat-head">PRICE DROPS <span class="stat-icon">⌁</span></div><div class="stat-value">08</div><div class="stat-foot"><span class="muted">Last 30 days</span></div></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel products-panel">
+            <div class="panel-header">
+              <div><div class="eyebrow">YOUR WATCHLIST</div><h2>Tracked products</h2></div>
+              <button class="text-button" data-view="products">View all <span>↗</span></button>
+            </div>
+            <div class="toolbar">
+              <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search products or stores…"></label>
+              <select id="statusFilter" aria-label="Filter by status"><option value="all">All status</option><option value="discount">On sale</option><option value="target">Target reached</option><option value="regular">Regular price</option></select>
+              <select id="currencySelect" aria-label="Display currency"><option value="store">Store currency</option><option value="EUR">EUR €</option><option value="USD">USD $</option><option value="GBP">GBP £</option><option value="UAH">UAH ₴</option></select>
+            </div>
+            <div class="table-wrap">
+              <table class="product-table">
+                <thead><tr><th>PRODUCT</th><th>STORE</th><th>PRICE</th><th>CHANGE</th><th>STATUS</th><th></th></tr></thead>
+                <tbody id="productRows"></tbody>
+              </table>
+              <div class="empty-state" id="emptyState" hidden>No products match your search.</div>
+            </div>
+            <div class="table-footer"><span id="showingCount">Showing 6 products</span><span class="demo-note">SAMPLE DATA · NOT LIVE PRICES</span></div>
+          </section>
+
+          <aside class="right-column">
+            <section class="panel stores-panel">
+              <div class="panel-header"><div><div class="eyebrow">SOURCES</div><h2>Monitored stores</h2></div><button class="small-plus" id="addStoreBtn" title="Add store">＋</button></div>
+              <div id="storeList" class="store-list"></div>
+              <button class="wide-quiet" data-view="stores">Manage stores <span>↗</span></button>
+            </section>
+            <section class="panel activity-panel">
+              <div class="panel-header"><div><div class="eyebrow">LATEST CHANGES</div><h2>Recent activity</h2></div><span class="live-label"><i></i> DEMO</span></div>
+              <div class="activity-list">
+                <div class="activity-item"><span class="activity-marker green"></span><div><strong>Price dropped by 20%</strong><p>Technical jacket · A-COLD-WALL*</p><small>Today, 09:42</small></div></div>
+                <div class="activity-item"><span class="activity-marker green"></span><div><strong>New sale price detected</strong><p>Oversized hoodie · Our Legacy</p><small>Yesterday, 18:16</small></div></div>
+                <div class="activity-item"><span class="activity-marker"></span><div><strong>Product back in stock</strong><p>Ghost piece tee · Stone Island</p><small>Nov 08, 14:03</small></div></div>
+              </div>
+              <button class="wide-quiet" data-view="history">View activity <span>↗</span></button>
+            </section>
+          </aside>
+        </div>
+        <footer class="footer"><span>SALE TRACKER <b>·</b> PERSONAL PRICE INTELLIGENCE</span><span>PROTOTYPE v0.1 <b>·</b> DATA IS ILLUSTRATIVE</span></footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header"><div><div class="eyebrow">WATCHLIST</div><h2 id="modalTitle">Add a product</h2></div><button class="close-button" id="closeModal" aria-label="Close">×</button></div>
+      <form id="productForm">
+        <label>Product name<input name="name" required placeholder="e.g. Technical jacket"></label>
+        <label>Product URL<input name="url" type="url" required placeholder="https://store.com/product"></label>
+        <div class="form-row">
+          <label>Store<select name="store"><option>A-COLD-WALL*</option><option>Stone Island</option><option>Our Legacy</option><option>Other</option></select></label>
+          <label>Currency<select name="currency"><option>GBP</option><option>EUR</option><option>USD</option><option>UAH</option></select></label>
+        </div>
+        <div class="form-row">
+          <label>Current price<input name="price" type="number" min="0" step="0.01" required placeholder="180"></label>
+          <label>Target price<input name="target" type="number" min="0" step="0.01" placeholder="120"></label>
+        </div>
+        <p class="form-hint">Prototype only: this adds a sample row in your current browser session. Live URL parsing and cloud saving come in a later step.</p>
+        <button class="button button-primary submit-button" type="submit">Add to watchlist <span>→</span></button>
+      </form>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
